@@ -11,13 +11,13 @@ public class Main {
     }
 
     private void diffieHellmanKeyExchange() {
-        DiffieHellmanEncryptor alice = new DiffieHellmanEncryptor(BigInteger.valueOf(4));
-        DiffieHellmanEncryptor bob = new DiffieHellmanEncryptor(BigInteger.valueOf(3));
+        DiffieHellmanKeyExchange alice = new DiffieHellmanKeyExchange(BigInteger.valueOf(4));
+        DiffieHellmanKeyExchange bob = new DiffieHellmanKeyExchange(BigInteger.valueOf(3));
 
         BigInteger modulo = BigInteger.valueOf(23);
         BigInteger base = BigInteger.valueOf(5);
 
-        DiffieHellmanEncryptor.setSecret(alice, bob, modulo, base);
+        DiffieHellmanKeyExchange.setSecret(alice, bob, modulo, base);
     }
 
 }
