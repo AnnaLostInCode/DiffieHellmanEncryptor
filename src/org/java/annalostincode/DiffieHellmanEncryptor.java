@@ -15,15 +15,9 @@ public class DiffieHellmanEncryptor {
     }
 
     public static boolean setSecret(DiffieHellmanEncryptor k1, DiffieHellmanEncryptor k2, BigInteger modulo, BigInteger base) {
-        BigInteger k1mix = k1.compute(base, modulo);
-        BigInteger k2mix = k2.compute(base, modulo);
-
-        BigInteger k1secret = k1.compute(k2mix, modulo);
-        System.out.println("Secret 1: " + k1secret);
-        BigInteger k2secret = k2.compute(k1mix, modulo);
-        System.out.println("Secret 2: " + k2secret);
-
-        return Objects.equals(k1secret, k2secret);
+        BigInteger k1result = k1.compute(base, modulo);
+        BigInteger k2result = k2.compute(base, modulo);
+        return Objects.equals(k1.compute(k2result, modulo), k2.compute(k1result, modulo));
     }
 
 }
